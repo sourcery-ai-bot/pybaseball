@@ -61,6 +61,5 @@ def batting_stats(start_season, end_season=None, league='all', qual=1, ind=1):
     if end_season is None:
         end_season = start_season
     soup = get_soup(start_season=start_season, end_season=end_season, league=league, qual=qual, ind=ind)
-    table = get_table(soup, ind)
-    return table
+    return get_table(soup, ind)
 

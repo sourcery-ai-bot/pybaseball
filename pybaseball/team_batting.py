@@ -45,9 +45,6 @@ def postprocessing(data):
             data[col] = data[col].str.strip(' %')
             data[col] = data[col].str.strip('%')
             data[col] = data[col].astype(float)/100.
-        else:
-            pass
-
     # convert columns to numeric
     not_numeric = ['Team']
     numeric_cols = [col for col in data.columns if col not in not_numeric]

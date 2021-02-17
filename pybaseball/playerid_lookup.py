@@ -57,8 +57,7 @@ def playerid_lookup(last=None, first=None, player_list=None):
     # if player_list has a value, then the user is passing in a list of players
     # the list of players may be comma delimited for last, first, or just last
     if player_list:
-        player_counter = 1
-        for player in player_list:
+        for player_counter, player in enumerate(player_list, start=1):
             last = player.split(",")[0].strip()
             first = None
             if (len(player.split(",")) > 1):
@@ -67,7 +66,6 @@ def playerid_lookup(last=None, first=None, player_list=None):
                 results = playerid_lookup(last, first)
             else:
                 results = results.append(playerid_lookup(last, first), ignore_index=True)
-            player_counter += 1
         return results
 
     if first is None:

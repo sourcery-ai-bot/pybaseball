@@ -184,8 +184,6 @@ def statcast(start_dt=None, end_dt=None, team=None, verbose=True):
 
 
     start_dt, end_dt = sanitize_input(start_dt, end_dt)
-    # 3 days or less -> a quick one-shot request. Greater than 3 days -> break it into multiple smaller queries
-    small_query_threshold = 5
     # inputs are valid if either both or zero dates are supplied. Not valid of only one given.
 
 
@@ -195,6 +193,8 @@ def statcast(start_dt=None, end_dt=None, team=None, verbose=True):
         d1 = datetime.datetime.strptime(start_dt, date_format)
         d2 = datetime.datetime.strptime(end_dt, date_format)
         days_in_query = (d2 - d1).days
+        # 3 days or less -> a quick one-shot request. Greater than 3 days -> break it into multiple smaller queries
+        small_query_threshold = 5
         if days_in_query <= small_query_threshold:
             data = small_request(start_dt,end_dt)
         else:

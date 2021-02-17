@@ -25,7 +25,7 @@ def plot_stadium(team):
     title = {'text': [name], 'subtitle': [location]}
     if team == 'generic':
         title = 'Generic Stadium'
-    stadium = alt.Chart(coords, title=title).mark_line().encode(
+    return alt.Chart(coords, title=title).mark_line().encode(
         x=alt.X('x', axis=None, scale=alt.Scale(zero=True)),
         y=alt.Y('y', axis=None, scale=alt.Scale(zero=True)),
         color=alt.Color(
@@ -33,8 +33,6 @@ def plot_stadium(team):
         ),
         order='segment'
     )
-
-    return stadium
 
 
 def spraychart(data, team_stadium, title='', tooltips=[], size=100,

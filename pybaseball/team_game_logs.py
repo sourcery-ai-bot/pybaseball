@@ -14,8 +14,7 @@ def get_table(season, team, log_type):
     table = soup.find("table", attrs=dict(id=table_id))
     if table is None:
         raise RuntimeError("Table with expected id not found on scraped page.")
-    data = pd.read_html(str(table))[0]
-    return data
+    return pd.read_html(str(table))[0]
 
 
 def postprocess(data):

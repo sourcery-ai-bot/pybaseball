@@ -115,8 +115,7 @@ def bwar_bat(return_all=False):
     c=pd.read_csv(io.StringIO(s.decode('utf-8')))
     if return_all:
         return c
-    else:
-        cols_to_keep = ['name_common', 'mlb_ID', 'player_ID', 'year_ID', 'team_ID', 'stint_ID', 'lg_ID',
-                        'pitcher','G', 'PA', 'salary', 'runs_above_avg', 'runs_above_avg_off','runs_above_avg_def',
-                        'WAR_rep','WAA','WAR']
-        return c[cols_to_keep]
+    cols_to_keep = ['name_common', 'mlb_ID', 'player_ID', 'year_ID', 'team_ID', 'stint_ID', 'lg_ID',
+                    'pitcher','G', 'PA', 'salary', 'runs_above_avg', 'runs_above_avg_off','runs_above_avg_def',
+                    'WAR_rep','WAA','WAR']
+    return c[cols_to_keep]
